@@ -1,0 +1,14 @@
+{% extends 'common/base.html' %} {% block content %}
+<h2 class="text-center">Form Contact</h2>
+<div class="form-group">
+  <form action="" method="post">
+    {% csrf_token %} 
+    
+   <center>
+    <h3>¿ Estas seguro de eliminar {{ object }}  ? </h3>
+    <input type="submit" value="Confirmar" class="btn btn-primary">
+    <a href="{% url "contactme-list" %}" class="btn btn-secondary">Cancelar</a>
+   </center>
+  </form>
+</div>
+{% endblock content %}

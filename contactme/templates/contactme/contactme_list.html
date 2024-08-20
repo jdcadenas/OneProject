@@ -1,0 +1,36 @@
+{% extends "common/base.html" %} 
+
+{% block content %}
+<h1 class="text-center">Lista de contactos</h1>
+<a class="btn btn-primary" href="{% url 'contactme-create' %}" role="button">Agregar</a>
+<table class="table table-border table-hover">
+  <thead class="text-center">
+    <tr>
+      <th>#</th>
+      <th>Nombre</th>
+      <th>Correo</th>
+      <th>Teléfono</th>
+      <th>Mensajes</th>
+      <th>Acciones</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for d in data %}
+
+    <tr>
+      <td scope="row">{{ d.id }}</td>
+      <td>{{ d.name }}</td>
+      <td>{{ d.email}}</td>
+      <td >{{ d.phone_number}}</td>
+      <td>{{d.message }}</td>
+      <td>
+        <a class="btn btn-success" href="{% url 'contactme-update' pk=d.id %}" role="button">Editar</a>
+        <a class="btn btn-danger" href="{% url 'contactme-delete' pk=d.id  %}" role="button">Eliminar</a>
+      </td>
+      
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock  %}
