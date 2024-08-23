@@ -23,4 +23,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", HomeView.as_view(), name="home"),
     path("contactme/", include("contactme.urls")),
+    path('category-menu/', include('category_menu.urls')),
+    
 ]
