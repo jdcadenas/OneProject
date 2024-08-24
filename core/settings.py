@@ -23,10 +23,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-bvqq15=@++phcf&v_&^n(tsb)v@!9@ic2z4lthu9jq)*1xsj_4"
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+ENV = os.environ.get('ENV')
 
-ALLOWED_HOSTS = []
+if (ENV == "Production") :
+    from .configurations.production import *
+elif (ENV == "Staging"):
+     from .configurations.staging import *
+else:
+    from .configurations.development import *
+    
 
 
 # Application definition
