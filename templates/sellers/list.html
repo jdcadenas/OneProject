@@ -1,0 +1,15 @@
+{% extends "common/base.html" %} 
+
+{% block content %} {% for item, info in sellers %} 
+
+{% if info.open %}
+<ul class="list-group">
+  <li class="list-group-item">{% else %}</li>
+  <li class="list-group-item">
+    {% endif %} {{ item }} 
+    
+    {% for close in info.close %}
+        </li></ul>
+    {% endfor %} 
+{% endfor %} 
+{% endblock content %}

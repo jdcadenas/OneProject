@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     "contactme",
     "mptt",
     "category_menu",
+    'treebeard',
+    'sellers',
+    
 ]
 
 MIDDLEWARE = [
