@@ -1,0 +1,20 @@
+{% extends "common/base.html" %}
+
+{% block content %}
+
+{% load mptt_tags %}
+<ul class="list-group" >
+    {% recursetree category_menu %}
+        <li class="list-group-item">
+            {{ node.title }}
+            {% if not node.is_leaf_node %}
+                <ul class="list-group">
+                    {{ children }}
+                </ul>
+            {% endif %}
+        </li>
+    {% endrecursetree %}
+</ul>
+
+{% endblock content %}
+    
